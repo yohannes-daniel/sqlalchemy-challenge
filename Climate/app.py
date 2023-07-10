@@ -116,7 +116,7 @@ def tobs():
 # 5. Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
 
 # Start point
-@app.route("/api/v1.0/<start>/<end>")
+@app.route("/api/v1.0/<start>")
 def start_date(start):
     # Create our session (link) from Python to the DB
     session = Session(engine)
@@ -139,6 +139,7 @@ def start_date(start):
     return jsonify(temp_start)
 
 # Start and end point
+@app.route("/api/v1.0/<start>/<end>")
 def start_end_date(start, end):
     # Create our session (link) from Python to the DB
     session = Session(engine)
